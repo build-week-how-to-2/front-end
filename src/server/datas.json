@@ -1,0 +1,99 @@
+{
+	"allUsers": [
+		{
+			"id": 0,
+			"username": "user1",
+			"passHash": "#####",
+			"totalPoint": 0,
+			"userPost": [],
+			"savedPost": []
+		},
+		{
+			"id": 1,
+			"username": "user2",
+			"passHash": "#####",
+			"totalPoint": 0,
+			"userPost": [],
+			"savedPost": []
+		},
+		{
+			"id": 2,
+			"username": "user3",
+			"passHash": "#####",
+			"totalPoint": 0,
+			"userPost": [],
+			"savedPost": []
+		}
+	],
+	"allHowTo": [
+		{
+			"id": 100,
+			"postTitle": "First-Post",
+			"postBody": "this is a test",
+			"postedBy": "first post user",
+			"postCat": "technology",
+			"upvotes": 0,
+			"downvotes": 0,
+			"comments": [
+				{
+					"postedBy": "first commenter",
+					"commentBody": "this is a great post!",
+					"upvotes": 0,
+					"downvotes": 0
+				},
+				{
+					"postedBy": "second commenter",
+					"commentBody": "this is an okay post",
+					"upvotes": 0,
+					"downvotes": 0
+				}
+			]
+		},
+		{
+			"id": 200,
+			"postTitle": "second-post",
+			"postBody": "this is a test",
+			"postedBy": "second post user",
+			"postCat": "science",
+			"upvotes": 0,
+			"downvotes": 0,
+			"comments": [
+				{
+					"postedBy": "first commenter",
+					"commentBody": "this post is fake news",
+					"upvotes": 0,
+					"downvotes": 0
+				},
+				{
+					"postedBy": "second commenter",
+					"commentBody": "this post sucks",
+					"upvotes": 0,
+					"downvotes": 0
+				}
+			]
+		},
+		{
+			"id": 300,
+			"postTitle": "third post",
+			"postBody": "this is a test",
+			"postedBy": "third post user",
+			"postCat": "education",
+			"upvotes": 0,
+			"downvotes": 0,
+			"comments": [
+				{
+					"postedBy": "first commenter",
+					"commentBody": "this is a test",
+					"upvotes": 0,
+					"downvotes": 0
+				},
+				{
+					"postedBy": "second commenter",
+					"commentBody": "this hack will change the world",
+					"upvotes": 0,
+					"downvotes": 0
+				}
+			]
+		}
+	]
+}
