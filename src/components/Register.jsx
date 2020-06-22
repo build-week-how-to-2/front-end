@@ -1,16 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
 import useForm from "../hooks/useForm";
+import { registerUser } from "../store/actions";
 import { Label, Input, Form, Button } from "reactstrap";
 
 const initialForm = {
-	fname: "",
+	// fname: "",
 	username: "",
 	passwd: "",
 	email: "",
 	tos: false,
 };
 
-export default function Register() {
+export function Register({ registerUser }) {
 	const [registerFormValues, setRegisterFormValues] = useForm(
 		"registerForm",
 		initialForm
@@ -18,8 +20,17 @@ export default function Register() {
 
 	return (
 		<div>
-			<Form>
-				<Label>
+			<Form
+				onSubmit={event => {
+					event.preventDefault();
+					registerUser({
+						username: registerFormValues.username,
+						password: registerFormValues.passwd,
+						role: "user",
+					});
+					localStorage.removeItem("registerForm");
+				}}>
+				{/* <Label>
 					{" "}
 					First Name {"  "}
 					<Input
@@ -29,7 +40,7 @@ export default function Register() {
 						onChange={setRegisterFormValues}
 					/>
 				</Label>
-				<br />
+				<br /> */}
 				<Label>
 					{" "}
 					Username: {"  "}
@@ -71,3 +82,11 @@ export default function Register() {
 		</div>
 	);
 }
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = {
+	registerUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

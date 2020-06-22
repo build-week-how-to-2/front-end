@@ -32,7 +32,16 @@ export const logInUser = creds => dispatch => {
 
 export const registerUser = user => dispatch => {
 	dispatch({ type: "REGISTER_USER", dispatch: user });
-	axiosWithAuth().post().then().catch();
+	axiosWithAuth()
+		.post("/api/register")
+		.then(res => {
+			console.log(res);
+			debugger;
+		})
+		.catch(error => {
+			console.log(error);
+			debugger;
+		});
 };
 
 export const upvote = data => dispatch => {
