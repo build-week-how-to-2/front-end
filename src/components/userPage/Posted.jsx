@@ -31,7 +31,6 @@ export const Posted = ({ postedHowTo, howToFeed, getMyPost }) => {
 									</Link>
 								</div>
 							</div>
-							{/* <div className="postedPostBody">{item.body}</div> */}
 						</div>
 					);
 				})
