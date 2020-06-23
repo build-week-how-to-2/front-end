@@ -37,7 +37,7 @@ export const Login = ({ logInUser }) => {
 					<Label>
 						Password:{"  "}
 						<Input
-							type="text"
+							type="password"
 							name="password"
 							value={loginForm.password}
 							onChange={setLoginForm}
