@@ -22,7 +22,7 @@ export const Posted = ({ postedHowTo, howToFeed, getMyPost }) => {
 								<span>{item.name}</span>
 								<div className="votes">
 									<span className="upvote">
-										{`Total Point: ${
+										{`Total Points: ${
 											item.upvotes - item.downvotes
 										}`}
 									</span>
@@ -31,7 +31,6 @@ export const Posted = ({ postedHowTo, howToFeed, getMyPost }) => {
 									</Link>
 								</div>
 							</div>
-							{/* <div className="postedPostBody">{item.body}</div> */}
 						</div>
 					);
 				})
