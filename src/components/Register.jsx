@@ -5,14 +5,13 @@ import { registerUser } from "../store/actions";
 import { Label, Input, Form, Button } from "reactstrap";
 
 const initialForm = {
-	// fname: "",
 	username: "",
 	passwd: "",
 	email: "",
 	tos: false,
 };
 
-export function Register({ registerUser }) {
+export function Register({ registerUser, toggle }) {
 	const [registerFormValues, setRegisterFormValues] = useForm(
 		"registerForm",
 		initialForm
@@ -23,12 +22,16 @@ export function Register({ registerUser }) {
 			<Form
 				onSubmit={event => {
 					event.preventDefault();
+					console.log(registerFormValues.username);
+					console.log(registerFormValues.passwd);
+					console.log(registerFormValues.email);
 					registerUser({
 						username: registerFormValues.username,
 						password: registerFormValues.passwd,
-						role: "user",
+						email: registerFormValues.email,
 					});
 					localStorage.removeItem("registerForm");
+					toggle("1");
 				}}>
 				{/* <Label>
 					{" "}

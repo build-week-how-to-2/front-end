@@ -163,6 +163,11 @@ export default function reducers(state = initialState, action) {
 				...state,
 				savedPost: [...newSaves],
 			};
+		case "GET_ALL_HOWTO":
+			return {
+				...state,
+				howToFeed: action.payload,
+			};
 		default:
 			return state;
 	}

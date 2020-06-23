@@ -7,8 +7,8 @@ import { FormGroup, Form, Input, Button, Label } from "reactstrap";
 
 export const Login = ({ logInUser }) => {
 	const [loginForm, setLoginForm] = useForm("loginForm", {
-		username: "test",
-		password: "test",
+		username: "",
+		password: "",
 	});
 	const { push } = useHistory();
 	return (
@@ -20,7 +20,7 @@ export const Login = ({ logInUser }) => {
 					localStorage.removeItem("loginForm");
 					setTimeout(() => {
 						push("/");
-					}, 100);
+					}, 1000);
 				}}>
 				<FormGroup>
 					<Label>

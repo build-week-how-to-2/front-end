@@ -33,10 +33,9 @@ export const logInUser = creds => dispatch => {
 export const registerUser = user => dispatch => {
 	dispatch({ type: "REGISTER_USER", dispatch: user });
 	axiosWithAuth()
-		.post("/api/register")
+		.post("/api/register", user)
 		.then(res => {
 			console.log(res);
-			debugger;
 		})
 		.catch(error => {
 			console.log(error);
@@ -59,19 +58,9 @@ export const postComment = comment => dispatch => {
 	axiosWithAuth().post().then().catch();
 };
 
-export const editPost = data => dispatch => {
-	dispatch({ type: "EDIT_POST", payload: data });
-	axiosWithAuth().post().then().catch();
-};
-
 export const editComment = data => dispatch => {
 	dispatch({ type: "EDIT_COMMENT", payload: data });
 	axiosWithAuth().post().then().catch();
-};
-
-export const newPost = data => dispatch => {
-	console.log("newPost");
-	dispatch({ type: "NEW_POST", payload: data });
 };
 
 export const addHowTo = data => dispatch => {
@@ -93,4 +82,76 @@ export const savePost = post => dispatch => {
 
 export const deleteSave = id => dispatch => {
 	dispatch({ type: "DELETE_SAVE", payload: id });
+};
+
+export const getAllUsers = () => {
+	axiosWithAuth()
+		.get("/api")
+		.then(res => {
+			console.log(res);
+		})
+		.catch(error => {
+			console.log(error);
+			debugger;
+		});
+};
+
+export const getAllHowTo = () => dispatch => {
+	axiosWithAuth()
+		.get("/howtos")
+		.then(res => {
+			dispatch({ type: "GET_ALL_HOWTO", payload: res.data });
+		})
+		.catch(error => {
+			console.log(error);
+			debugger;
+		});
+};
+
+export const newPost = post => dispatch => {
+	axiosWithAuth()
+		.post("/howtos", post)
+		.then(res => {
+			console.log(res);
+			// dispatch({ type: "NEW_POST", payload: post });
+		})
+		.catch(error => {
+			console.log(error);
+			debugger;
+		});
+};
+
+export const editPost = (id, data) => dispatch => {
+	axiosWithAuth()
+		.put(`/howtos/${id}`, data)
+		.then(res => {
+			console.log(res);
+			// dispatch({ type: "EDIT_POST", payload: res.data });
+		})
+		.catch(error => {
+			console.log(error);
+			debugger;
+		});
+};
+
+export const deletePost = id => dispatch => {
+	axiosWithAuth()
+		.delete(`/howtos/${id}`)
+		.then(res => {
+			console.log(res);
+			dispatch({ type: "DELETE_POST", payload: res.data });
+		});
+};
+
+export const getMyPost = () => dispatch => {
+	axiosWithAuth()
+		.get("/howtos/creator")
+		.then(res => {
+			console.log(res);
+			dispatch({ type: "GET_MY_POST", payload: res.data });
+		})
+		.catch(error => {
+			console.log(error);
+			debugger;
+		});
 };

@@ -38,7 +38,7 @@ export default function RegisterLogin() {
 					<Login />
 				</TabPane>
 				<TabPane tabId="2">
-					<Register />
+					<Register toggle={toggle} />
 				</TabPane>
 			</TabContent>
 		</div>
