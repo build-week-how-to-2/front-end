@@ -12,6 +12,20 @@ code {
 		monospace;
 }
 
+.App {
+	background-color: #f4f4f4;
+	height: 100vh;
+}
+
+.wrapper {
+	width: 75%;
+	margin: auto;
+	padding: 4% 2%;
+	background-color: #fff;
+	border: 3px dashed black;
+	border-radius: 20px;
+}
+
 .logo {
 	width: 100px;
 }
@@ -26,7 +40,7 @@ code {
 
 .leftCol {
 	width: 40%;
-	border-right: 1px dashed black;
+	/* border-right: 1px dashed black; */
 }
 
 .rightCol {
@@ -38,16 +52,21 @@ code {
 	border: 1px solid black;
 } */
 
-.wrapper {
-	width: 75%;
-	margin: auto;
-}
-
 .addHowTo,
 label {
 	width: 100%;
 }
 
 .commentsModal {
+	border: 1px solid black;
+}
+
+.footers {
+	border-top: 1px dashed black;
+	margin: 1% 0%;
+	padding: 1% 0%;
+}
+
+.deletes {
 	border: 1px solid black;
 }

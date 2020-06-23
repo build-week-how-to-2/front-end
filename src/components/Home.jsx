@@ -8,8 +8,10 @@ export const Home = () => {
 	return (
 		<div className="homePage">
 			<div className="leftCol">
-				POSTED/SAVED:
+				<h2>POSTED/SAVED:</h2>
+				<hr />
 				<Posted />
+				<hr />
 				<Saved />
 			</div>
 			<div className="rightCol">

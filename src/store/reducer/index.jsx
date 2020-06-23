@@ -2,127 +2,9 @@ import { v4 as uuidv4 } from "uuid";
 
 export const initialState = {
 	currentUser: "initialUser",
-	howToFeed: [
-		{
-			id: uuidv4(),
-			postTitle: "First-Post",
-			postBody: "this is a test post #1",
-			postedBy: "first post user",
-			postCat: "technology",
-			upvotes: 0,
-			downvotes: 0,
-			comments: [
-				{
-					postedBy: "first commenter",
-					commentBody: "this is a great post!",
-					upvotes: 0,
-					downvotes: 0,
-				},
-				{
-					postedBy: "second commenter",
-					commentBody: "this is an okay post",
-					upvotes: 0,
-					downvotes: 0,
-				},
-			],
-		},
-		{
-			id: uuidv4(),
-			postTitle: "second-post",
-			postBody: "this is a test post #2",
-			postedBy: "second post user",
-			postCat: "science",
-			upvotes: 0,
-			downvotes: 0,
-			comments: [
-				{
-					postedBy: "first commenter",
-					commentBody: "this post is fake news",
-					upvotes: 0,
-					downvotes: 0,
-				},
-				{
-					postedBy: "second commenter",
-					commentBody: "this post sucks",
-					upvotes: 0,
-					downvotes: 0,
-				},
-			],
-		},
-		{
-			id: uuidv4(),
-			postTitle: "third post",
-			postBody: "this is a test post #3",
-			postedBy: "third post user",
-			postCat: "education",
-			upvotes: 0,
-			downvotes: 0,
-			comments: [
-				{
-					postedBy: "first commenter",
-					commentBody: "this is a test",
-					upvotes: 0,
-					downvotes: 0,
-				},
-				{
-					postedBy: "second commenter",
-					commentBody: "this hack will change the world",
-					upvotes: 0,
-					downvotes: 0,
-				},
-			],
-		},
-	],
-	postedHowTo: [
-		{
-			id: uuidv4(),
-			postTitle: "third post",
-			postBody: "this is a test post that the current user has posted",
-			postedBy: "third post user",
-			postCat: "education",
-			upvotes: 0,
-			downvotes: 0,
-			comments: [
-				{
-					postedBy: "first commenter",
-					commentBody: "this is a test",
-					upvotes: 0,
-					downvotes: 0,
-				},
-				{
-					postedBy: "second commenter",
-					commentBody: "this hack will change the world",
-					upvotes: 0,
-					downvotes: 0,
-				},
-			],
-		},
-	],
-	savedPost: [
-		{
-			id: uuidv4(),
-			postTitle: "this is a test post that the user has saved",
-			postBody: "this is a test post that the user has saved",
-			postedBy: "first post user",
-			postCat: "technology",
-			upvotes: 0,
-			downvotes: 0,
-			comments: [
-				{
-					postedBy: "first commenter",
-					commentBody: "this is a great post!",
-					upvotes: 0,
-					downvotes: 0,
-				},
-				{
-					postedBy: "second commenter",
-					commentBody: "this is an okay post",
-					upvotes: 0,
-					downvotes: 0,
-				},
-			],
-		},
-	],
+	howToFeed: [],
+	postedHowTo: [],
+	savedPost: [],
 	totalPoints: "upvotes - downvotes",
 };
 
@@ -136,6 +18,11 @@ export default function reducers(state = initialState, action) {
 		case "GET_DATA_FAIL":
 			return {
 				...state,
+			};
+		case "USER_LOGGED_IN":
+			return {
+				...state,
+				currentUser: action.payload,
 			};
 		case "NEW_POST":
 			let newPost = {
@@ -166,7 +53,12 @@ export default function reducers(state = initialState, action) {
 		case "GET_ALL_HOWTO":
 			return {
 				...state,
-				howToFeed: action.payload,
+				howToFeed: [...action.payload],
+			};
+		case "GET_MY_POST":
+			return {
+				...state,
+				postedHowTo: action.payload,
 			};
 		default:
 			return state;

@@ -11,12 +11,17 @@ const initialForm = {
 	postCat: "",
 };
 
-export function AddHowTo({ addHowTo }) {
+export function AddHowTo({ currentUser, addHowTo }) {
 	const [addHowForm, setAddHowForm] = useForm("Add How-To form", initialForm);
 	const { push } = useHistory();
 	const submit = event => {
 		event.preventDefault();
-		addHowTo(addHowForm);
+		addHowTo({
+			creator: currentUser,
+			name: addHowForm.postTitle,
+			body: addHowForm.postBody,
+			cat: addHowForm.postCat,
+		});
 		localStorage.removeItem("Add How-To form");
 		push("/");
 	};
@@ -63,7 +68,9 @@ export function AddHowTo({ addHowTo }) {
 	);
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+	currentUser: state.currentUser,
+});
 
 const mapDispatchToProps = {
 	addHowTo,

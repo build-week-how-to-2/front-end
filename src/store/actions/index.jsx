@@ -21,12 +21,14 @@ export const logInUser = creds => dispatch => {
 	axiosWithAuth()
 		.post("/api/login", creds)
 		.then(res => {
-			const loggedInAction = {
+			console.log(res);
+			dispatch({
 				type: "USER_LOGGED_IN",
-				payload: res.data.user,
-			};
-			dispatch(loggedInAction);
-			window.localStorage.setItem("token", res.data.payload);
+				payload: creds.username,
+			});
+			setTimeout(() => {
+				window.localStorage.setItem("token", res.data.token);
+			}, 500);
 		});
 };
 
@@ -43,9 +45,19 @@ export const registerUser = user => dispatch => {
 		});
 };
 
-export const upvote = data => dispatch => {
-	dispatch({ type: "UPVOTE", payload: data });
-	axiosWithAuth().post().then().catch();
+export const upvote = (id, data) => dispatch => {
+	// dispatch({ type: "UPVOTE", payload: data });
+	// axiosWithAuth().post().then().catch();
+	axiosWithAuth()
+		.put(`/howtos/${id}`, data)
+		.then(res => {
+			console.log(res);
+			// dispatch({ type: "EDIT_POST", payload: res.data });
+		})
+		.catch(error => {
+			console.log(error);
+			debugger;
+		});
 };
 
 export const downvote = data => dispatch => {
@@ -65,10 +77,10 @@ export const editComment = data => dispatch => {
 
 export const addHowTo = data => dispatch => {
 	axiosWithAuth()
-		.post("/api/posts", data)
+		.post("/howtos", data)
 		.then(({ data }) => {
 			console.log("newPost");
-			dispatch({ type: "NEW_POST", payload: data });
+			// dispatch({ type: "NEW_POST", payload: data });
 		})
 		.catch(error => {
 			console.log(error);
@@ -100,11 +112,12 @@ export const getAllHowTo = () => dispatch => {
 	axiosWithAuth()
 		.get("/howtos")
 		.then(res => {
+			console.log(res);
 			dispatch({ type: "GET_ALL_HOWTO", payload: res.data });
 		})
 		.catch(error => {
 			console.log(error);
-			debugger;
+			// debugger;
 		});
 };
 
@@ -139,7 +152,7 @@ export const deletePost = id => dispatch => {
 		.delete(`/howtos/${id}`)
 		.then(res => {
 			console.log(res);
-			dispatch({ type: "DELETE_POST", payload: res.data });
+			// dispatch({ type: "DELETE_POST", payload: res.data });
 		});
 };
 
@@ -155,3 +168,7 @@ export const getMyPost = () => dispatch => {
 			debugger;
 		});
 };
+
+// export const getPostById = id => {
+// 	axiosWithAuth().get(`/howtos/${id}`).then;
+// };

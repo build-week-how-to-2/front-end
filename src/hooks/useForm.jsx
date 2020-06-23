@@ -13,5 +13,5 @@ export default function useForm(key, initialValue) {
 		localStorage.removeItem("FormData");
 	};
 
-	return [values, handleChanges, handleSubmit];
+	return [values, handleChanges, setValues];
 }

@@ -6,20 +6,26 @@ export const Saved = ({ savedPost, deleteSave }) => {
 	return (
 		<div className="saved">
 			<h2>users Saved Post:</h2>
-			{savedPost.map(item => {
-				return (
-					<div className="savedPost" key={item.id}>
-						<h4>{item.postTitle}</h4>
-						<p>{item.postCat}</p>
-						<span
-							onClick={() => {
-								deleteSave(item.id);
-							}}>
-							X
-						</span>
-					</div>
-				);
-			})}
+			{savedPost.length == 0 ? (
+				<p>...USEr HAS NOT SAVED ANY POST...</p>
+			) : (
+				savedPost.map(item => {
+					return (
+						<div className="savedPost" key={item.id}>
+							<span
+								className="deletes"
+								onClick={() => {
+									deleteSave(item.id);
+								}}>
+								X
+							</span>
+							{"  "}
+							<span>{item.name}</span>
+							<p>{item.Cat}</p>
+						</div>
+					);
+				})
+			)}
 		</div>
 	);
 };

@@ -22,13 +22,14 @@ export function Register({ registerUser, toggle }) {
 			<Form
 				onSubmit={event => {
 					event.preventDefault();
-					console.log(registerFormValues.username);
-					console.log(registerFormValues.passwd);
-					console.log(registerFormValues.email);
+					// console.log(registerFormValues.username);
+					// console.log(registerFormValues.passwd);
+					// console.log(registerFormValues.email);
 					registerUser({
 						username: registerFormValues.username,
 						password: registerFormValues.passwd,
 						email: registerFormValues.email,
+						role: "creator",
 					});
 					localStorage.removeItem("registerForm");
 					toggle("1");

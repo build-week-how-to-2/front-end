@@ -6,7 +6,9 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import RegisterLogin from "./components/RegisterLogin";
 import AddHowTo from "./components/AddHowTo";
+import EditHowTo from "./components/EditHowTo";
 import Footer from "./components/Footer";
+import Tos from "./components/Tos";
 
 function App() {
 	return (
@@ -18,9 +20,15 @@ function App() {
 					<ProtectedRoute exact path={"/"} component={Home} />
 					<ProtectedRoute
 						exact
-						patch={"/AddHowTo"}
+						path={"/AddHowTo"}
 						component={AddHowTo}
 					/>
+					<ProtectedRoute
+						exact
+						path={"/Edit/:id"}
+						component={EditHowTo}
+					/>
+					<Route path={"/Tos"} component={Tos} />
 				</Switch>
 				<Footer />
 			</div>
