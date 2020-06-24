@@ -9,6 +9,7 @@ const initialForm = {
 	postTitle: "",
 	postBody: "",
 	postCat: "",
+	img: "",
 };
 
 export function AddHowTo({ currentUser, addHowTo }) {
@@ -21,6 +22,7 @@ export function AddHowTo({ currentUser, addHowTo }) {
 			name: addHowForm.postTitle,
 			body: addHowForm.postBody,
 			cat: addHowForm.postCat,
+			img: addHowForm.img,
 		});
 		localStorage.removeItem("Add How-To form");
 		push("/");
@@ -45,6 +47,16 @@ export function AddHowTo({ currentUser, addHowTo }) {
 						type="textarea"
 						name="postBody"
 						value={addHowForm.postBody}
+						onChange={setAddHowForm}
+					/>
+				</Label>
+				<br />
+				<Label>
+					IMG URL: {"  "}
+					<Input
+						type="text"
+						name="img"
+						value={addHowForm.img}
 						onChange={setAddHowForm}
 					/>
 				</Label>
