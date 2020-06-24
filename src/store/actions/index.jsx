@@ -69,16 +69,6 @@ export const downvote = id => dispatch => {
 		});
 };
 
-// export const postComment = comment => dispatch => {
-// 	dispatch({ type: "POST_COMMENT", payload: comment });
-// 	axiosWithAuth().post().then().catch();
-// };
-
-// export const editComment = data => dispatch => {
-// 	dispatch({ type: "EDIT_COMMENT", payload: data });
-// 	axiosWithAuth().post().then().catch();
-// };
-
 export const addHowTo = data => dispatch => {
 	axiosWithAuth()
 		.post("/howtos", data)
@@ -171,7 +161,3 @@ export const getMyPost = () => dispatch => {
 			console.log(error);
 		});
 };
-
-// export const getPostById = id => {
-// 	axiosWithAuth().get(`/howtos/${id}`).then;
-// };
