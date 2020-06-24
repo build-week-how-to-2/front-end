@@ -3,11 +3,10 @@ import { connect } from "react-redux";
 import { editPost, deletePost } from "../../store/actions";
 import { axiosWithAuth } from "../../route/axiosWithAuth";
 import useForm from "../../hooks/useForm";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Input, Form, Label, FormGroup, Button } from "reactstrap";
 
 const initialForm = {
-	// creator: "michael",
 	name: "",
 	body: "",
 	img: null,
@@ -16,7 +15,6 @@ const initialForm = {
 
 export const EditHowTo = ({ editPost, deletePost }) => {
 	const { id } = useParams();
-	const { push } = useHistory();
 	const [currentPost, setCurrentPost] = useState();
 	const [editPostForm, setEditPostForm, setValues] = useForm(
 		"editForm",
@@ -86,23 +84,18 @@ export const EditHowTo = ({ editPost, deletePost }) => {
 					<Link to="/">
 						<Button
 							onClick={event => {
-								// event.preventDefault();
 								editPost(id, editPostForm);
 								localStorage.removeItem("editForm");
-								// push("/");
 							}}>
 							Save
 						</Button>
 					</Link>
 					{"  "}
-
 					<Link to="/">
 						<Button
 							onClick={event => {
-								// event.preventDefault();
 								deletePost(id);
 								localStorage.removeItem("editForm");
-								// push("/");
 							}}>
 							Delete
 						</Button>

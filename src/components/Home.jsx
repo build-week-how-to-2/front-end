@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import Feed from "./userPage/Feed";
-import Posted from "./userPage/Posted";
-import Saved from "./userPage/Saved";
+// import Posted from "./userPage/Posted";
+// import Saved from "./userPage/Saved";
 
 export const Home = () => {
 	// return (

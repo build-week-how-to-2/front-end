@@ -60,6 +60,22 @@ export default function reducers(state = initialState, action) {
 				...state,
 				postedHowTo: action.payload,
 			};
+		case "UPVOTE":
+			let newFeed = state.howToFeed.filter(item => {
+				return item.id !== action.payload[0].id;
+			});
+			return {
+				...state,
+				howToFeed: [action.payload[0], ...newFeed],
+			};
+		case "DOWNVOTE":
+			let newFeeds = state.howToFeed.filter(item => {
+				return item.id !== action.payload[0].id;
+			});
+			return {
+				...state,
+				howToFeed: [...newFeeds, action.payload[0]],
+			};
 		default:
 			return state;
 	}
