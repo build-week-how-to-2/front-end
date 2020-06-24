@@ -94,3 +94,9 @@ label {
 	display: flex;
 	justify-content: space-evenly;
 }
+
+#howToVote {
+	border-style: none;
+	width: 100px;
+	font-size: 150%;
+}

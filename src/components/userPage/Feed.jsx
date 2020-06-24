@@ -2,12 +2,17 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Pusher from "pusher-js";
 import { useParams, Link } from "react-router-dom";
-import { savePost, getAllHowTo, upvote, editPost } from "../../store/actions";
+import {
+	savePost,
+	getAllHowTo,
+	upvote,
+	downvote,
+	editPost,
+} from "../../store/actions";
 import {
 	Card,
 	CardImg,
 	CardText,
-	CardBody,
 	CardTitle,
 	CardSubtitle,
 	Button,
@@ -18,6 +23,7 @@ export const Feed = ({
 	savePost,
 	getAllHowTo,
 	upvote,
+	downvote,
 	editPost,
 	postedHowTo,
 }) => {
@@ -74,13 +80,7 @@ export const Feed = ({
 											<span
 												className="upvote"
 												onClick={() => {
-													console.log("upvote");
-													// console.log(item.id);
-													// upvote(item.id, {
-													// 	...item,
-													// 	upvotes: 1,
-													// });
-													// editPost(item.id, item);
+													upvote(item.id);
 												}}>
 												&uarr;{"  "}
 												{item.upvotes}
@@ -89,11 +89,7 @@ export const Feed = ({
 											<span
 												className="downvote"
 												onClick={() => {
-													console.log(item);
-													// upvote(item.id, {
-													// 	...item,
-													// 	downvotes: item.downvotes--,
-													// });
+													downvote(item.id);
 												}}>
 												&darr;{"  "}
 												{item.downvotes}
@@ -138,6 +134,7 @@ const mapDispatchToProps = {
 	savePost,
 	getAllHowTo,
 	upvote,
+	downvote,
 	editPost,
 };
 

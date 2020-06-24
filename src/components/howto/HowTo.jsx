@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { upvote, downvote } from "../../store/actions";
 import { axiosWithAuth } from "../../route/axiosWithAuth";
 import { Spinner, Jumbotron, Button, CardImg } from "reactstrap";
 
-export const HowTo = () => {
+export const HowTo = ({ howToFeed, upvote, downvote }) => {
 	const { id } = useParams();
-	const { push } = useHistory();
 	const [currentPost, setCurrentPost] = useState();
 
 	useEffect(() => {
@@ -19,18 +19,43 @@ export const HowTo = () => {
 				console.log(error);
 				debugger;
 			});
-	}, []);
+	}, [howToFeed]);
 
 	return (
 		<div>
 			{!currentPost ? (
-				// <p>...Post is Loading...</p>
 				<Spinner style={{ width: "3rem", height: "3rem" }} />
 			) : (
 				<div>
 					<Jumbotron>
 						<h1 className="display-3">{currentPost.name}</h1>
 						<p>{`Posted By: ${currentPost.creator}`}</p>
+						<div>
+							<div className="votes" id="howToVote">
+								<span
+									className="upvote"
+									onClick={() => {
+										upvote(currentPost.id);
+									}}>
+									&uarr;
+								</span>
+								{"  "}
+								{currentPost.upvotes}
+
+								{"    "}
+								<span
+									className="downvote"
+									onClick={() => {
+										downvote(currentPost.id);
+									}}>
+									&darr;
+								</span>
+								{"  "}
+								{currentPost.downvotes}
+
+								{"    "}
+							</div>
+						</div>
 						<hr className="my-2" />
 						<p className="lead">{currentPost.body}</p>
 						<hr className="my-2" />
@@ -54,8 +79,13 @@ export const HowTo = () => {
 	);
 };
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+	howToFeed: state.howToFeed,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+	upvote,
+	downvote,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(HowTo);

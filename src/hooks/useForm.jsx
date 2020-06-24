@@ -8,10 +8,5 @@ export default function useForm(key, initialValue) {
 		setValues({ ...values, [e.target.name]: e.target.value });
 	};
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		localStorage.removeItem("FormData");
-	};
-
 	return [values, handleChanges, setValues];
 }

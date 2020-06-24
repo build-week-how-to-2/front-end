@@ -1,7 +1,6 @@
 import { axiosWithAuth } from "../../route/axiosWithAuth";
 
 export const getData = links => dispatch => {
-	// dispatch({ type: "GET_DATA_START" });
 	axiosWithAuth()
 		.get("http://localhost:5000")
 		.then(({ data }) => {
@@ -41,39 +40,44 @@ export const registerUser = user => dispatch => {
 		})
 		.catch(error => {
 			console.log(error);
-			debugger;
 		});
 };
 
-export const upvote = (id, data) => dispatch => {
+export const upvote = id => dispatch => {
 	// dispatch({ type: "UPVOTE", payload: data });
 	// axiosWithAuth().post().then().catch();
 	axiosWithAuth()
-		.put(`/howtos/${id}`, data)
-		.then(res => {
-			console.log(res);
-			// dispatch({ type: "EDIT_POST", payload: res.data });
+		.put(`/howtos/${id}/upvote`)
+		.then(({ data }) => {
+			// console.log(res);
+			dispatch({ type: "UPVOTE", payload: data });
 		})
 		.catch(error => {
 			console.log(error);
-			debugger;
 		});
 };
 
-export const downvote = data => dispatch => {
-	dispatch({ type: "DOWNVOTE", payload: data });
-	axiosWithAuth().post().then().catch();
+export const downvote = id => dispatch => {
+	axiosWithAuth()
+		.put(`/howtos/${id}/downvote`)
+		.then(({ data }) => {
+			// console.log(res);
+			dispatch({ type: "DOWNVOTE", payload: data });
+		})
+		.catch(error => {
+			console.log(error);
+		});
 };
 
-export const postComment = comment => dispatch => {
-	dispatch({ type: "POST_COMMENT", payload: comment });
-	axiosWithAuth().post().then().catch();
-};
+// export const postComment = comment => dispatch => {
+// 	dispatch({ type: "POST_COMMENT", payload: comment });
+// 	axiosWithAuth().post().then().catch();
+// };
 
-export const editComment = data => dispatch => {
-	dispatch({ type: "EDIT_COMMENT", payload: data });
-	axiosWithAuth().post().then().catch();
-};
+// export const editComment = data => dispatch => {
+// 	dispatch({ type: "EDIT_COMMENT", payload: data });
+// 	axiosWithAuth().post().then().catch();
+// };
 
 export const addHowTo = data => dispatch => {
 	axiosWithAuth()
@@ -165,7 +169,6 @@ export const getMyPost = () => dispatch => {
 		})
 		.catch(error => {
 			console.log(error);
-			debugger;
 		});
 };
 
