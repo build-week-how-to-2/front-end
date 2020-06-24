@@ -13,15 +13,15 @@ code {
 }
 
 .App {
-	background-color: #f4f4f4;
-	height: 100vh;
+	/* background-color: blue;
+	height: 200vh; */
 }
 
 .wrapper {
 	width: 75%;
 	margin: auto;
 	padding: 4% 2%;
-	background-color: #fff;
+	background-color: #f4f4f4;
 	border: 3px dashed black;
 	border-radius: 20px;
 }
@@ -69,4 +69,28 @@ label {
 
 .deletes {
 	border: 1px solid black;
+}
+
+.votes {
+	border: 1px solid black;
+	width: 75px;
+	margin-left: 4%;
+}
+
+.saveBTN {
+	margin: 0% 1%;
+}
+
+.wrapper .feedPost {
+	margin: 1% 0%;
+}
+
+.wrapper .feedPostHeader a {
+	text-decoration: none;
+	color: black;
+}
+
+.wrapper .bars {
+	display: flex;
+	justify-content: space-evenly;
 }

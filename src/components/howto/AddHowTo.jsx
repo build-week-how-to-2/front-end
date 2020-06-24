@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import useForm from "../hooks/useForm";
+import useForm from "../../hooks/useForm";
 import { Input, Form, Label, Button } from "reactstrap";
-import { addHowTo } from "../store/actions";
+import { addHowTo } from "../../store/actions";
 import { useHistory } from "react-router-dom";
 
 const initialForm = {

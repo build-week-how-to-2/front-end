@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import useForm from "../hooks/useForm";
-import { registerUser } from "../store/actions";
+import useForm from "../../hooks/useForm";
+import { registerUser } from "../../store/actions";
 import { Label, Input, Form, Button } from "reactstrap";
 
 const initialForm = {
@@ -22,9 +22,6 @@ export function Register({ registerUser, toggle }) {
 			<Form
 				onSubmit={event => {
 					event.preventDefault();
-					// console.log(registerFormValues.username);
-					// console.log(registerFormValues.passwd);
-					// console.log(registerFormValues.email);
 					registerUser({
 						username: registerFormValues.username,
 						password: registerFormValues.passwd,
@@ -34,17 +31,6 @@ export function Register({ registerUser, toggle }) {
 					localStorage.removeItem("registerForm");
 					toggle("1");
 				}}>
-				{/* <Label>
-					{" "}
-					First Name {"  "}
-					<Input
-						type="text"
-						name="fname"
-						value={registerFormValues.fname}
-						onChange={setRegisterFormValues}
-					/>
-				</Label>
-				<br /> */}
 				<Label>
 					{" "}
 					Username: {"  "}

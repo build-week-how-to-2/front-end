@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import useForm from "../hooks/useForm";
+import useForm from "../../hooks/useForm";
 import { useHistory } from "react-router-dom";
-import { logInUser } from "../store/actions";
+import { logInUser } from "../../store/actions";
 import { FormGroup, Form, Input, Button, Label } from "reactstrap";
 
 export const Login = ({ logInUser }) => {
