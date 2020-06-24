@@ -60,8 +60,10 @@ export const EditHowTo = ({ editPost, deletePost }) => {
 					<FormGroup>
 						<Label>
 							Post Body:{"  "}
+							<sup>max 400</sup>
+							{"  "}
 							<Input
-								type="text"
+								type="textarea"
 								name="body"
 								value={editPostForm.body}
 								onChange={setEditPostForm}></Input>
