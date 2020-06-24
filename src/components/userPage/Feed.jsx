@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Pusher from "pusher-js";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { savePost, getAllHowTo, upvote, editPost } from "../../store/actions";
 import {
 	Card,
@@ -41,6 +41,9 @@ export const Feed = ({
 
 	return (
 		<div className="feed">
+			<hr className="my-2" />
+			<h1>FEED:</h1>
+
 			{!howToFeed ? (
 				<p>...Feed is loading...</p>
 			) : (
@@ -49,54 +52,68 @@ export const Feed = ({
 						<div className="feedPost" key={item.id}>
 							<Card>
 								<div className="feedPostHeader">
-									<CardTitle>
-										<h4>{item.name}</h4>
-									</CardTitle>
+									<Link to={`/HowTo/${item.id}`}>
+										<CardTitle>
+											<h4>{item.name}</h4>
+										</CardTitle>
+									</Link>
 									<CardSubtitle>
 										<span>{`Posted by: ${item.creator}`}</span>
-									</CardSubtitle>
-									<div className="votes">
-										<span
-											className="upvote"
-											onClick={() => {
-												console.log("upvote");
-												// console.log(item.id);
-												// upvote(item.id, {
-												// 	...item,
-												// 	upvotes: 1,
-												// });
-												// editPost(item.id, item);
-											}}>
-											+{"  "}
-											{item.upvotes}
-										</span>
-										{"    "}
-										<span
-											className="downvote"
-											onClick={() => {
-												console.log(item);
-												upvote(item.id, {
-													...item,
-													downvotes: item.downvotes--,
-												});
-											}}>
-											-{"  "}
-											{item.downvotes}
-										</span>
-										{"    "}
 										<Button
+											className="saveBTN"
+											size="sm"
+											color="info"
 											onClick={() => {
 												savePost(item);
 											}}>
 											SAVE
 										</Button>
+									</CardSubtitle>
+									<div>
+										<div className="votes">
+											<span
+												className="upvote"
+												onClick={() => {
+													console.log("upvote");
+													// console.log(item.id);
+													// upvote(item.id, {
+													// 	...item,
+													// 	upvotes: 1,
+													// });
+													// editPost(item.id, item);
+												}}>
+												&uarr;{"  "}
+												{item.upvotes}
+											</span>
+											{"    "}
+											<span
+												className="downvote"
+												onClick={() => {
+													console.log(item);
+													// upvote(item.id, {
+													// 	...item,
+													// 	downvotes: item.downvotes--,
+													// });
+												}}>
+												&darr;{"  "}
+												{item.downvotes}
+											</span>
+											{"    "}
+										</div>
 									</div>
-									<CardImg
-										top
-										width="100%"
-										src={item.img}
-										alt="HOW TO IMG"
-									/>
+									<hr className="my-2" />
+									<Link to={`/HowTo/${item.id}`}>
+										<CardImg
+											top
+											width="100%"
+											src={
+												!item.img
+													? "https://i.ibb.co/Wzg7PXJ/Logo-Makr-0-SLedd.png"
+													: item.img
+											}
+											alt="HOW TO IMG"
+										/>
+									</Link>
 								</div>
 								<CardText>
 									<span className="feedPostBody">

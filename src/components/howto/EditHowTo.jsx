@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { editPost, deletePost } from "../store/actions";
-import { axiosWithAuth } from "../route/axiosWithAuth";
-import useForm from "../hooks/useForm";
+import { editPost, deletePost } from "../../store/actions";
+import { axiosWithAuth } from "../../route/axiosWithAuth";
+import useForm from "../../hooks/useForm";
 import { useParams, useHistory, Link } from "react-router-dom";
 import { Input, Form, Label, FormGroup, Button } from "reactstrap";
 
