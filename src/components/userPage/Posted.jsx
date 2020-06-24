@@ -26,6 +26,7 @@ export const Posted = ({ postedHowTo, howToFeed, getMyPost }) => {
 											item.upvotes - item.downvotes
 										}`}
 									</span>
+									{"  "}
 									<Link to={`/Edit/${item.id}`}>
 										<Button>EDIT</Button>
 									</Link>
