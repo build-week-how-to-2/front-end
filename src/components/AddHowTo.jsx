@@ -42,9 +42,12 @@ export function AddHowTo({ currentUser, addHowTo }) {
 				</Label>
 				<br />
 				<Label>
-					How-To Body: {"  "}
+					How-To Body:{"  "}
+					<sup>max 400</sup>
+					{"  "}
 					<Input
 						type="textarea"
+						maxlength="400"
 						name="postBody"
 						value={addHowForm.postBody}
 						onChange={setAddHowForm}
