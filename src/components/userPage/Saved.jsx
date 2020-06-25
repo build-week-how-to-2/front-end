@@ -9,7 +9,7 @@ export const Saved = ({ savedPost, deleteSave }) => {
 	const toggle = () => setPopoverOpen(!popoverOpen);
 	return (
 		<div className="saved">
-			<Button id="Popover1" type="button" color="success">
+			<Button id="Popover1" type="button" color="info">
 				My Saved Post
 			</Button>
 			<Popover

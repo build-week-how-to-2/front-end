@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import useForm from "../../hooks/useForm";
 import { registerUser } from "../../store/actions";
 import { Label, Input, Form, Button } from "reactstrap";
+import * as yup from "yup";
+import formSchema from "./formSchema";
 
 const initialForm = {
 	username: "",
@@ -11,14 +13,71 @@ const initialForm = {
 	tos: false,
 };
 
+const initialFormErrors = {
+	username: "",
+	email: "",
+	tos: "",
+};
+
 export function Register({ registerUser, toggle }) {
-	const [registerFormValues, setRegisterFormValues] = useForm(
+	const [registerFormValues, setRegisterFormValues, setValues] = useForm(
 		"registerForm",
 		initialForm
 	);
+	const [formErrors, setFormErrors] = useState(initialFormErrors);
+	const [disabled, setDisabled] = useState(true);
+
+	useEffect(() => {
+		formSchema.isValid(registerFormValues).then(valid => {
+			console.log(valid);
+			if (registerFormValues.tos) {
+				setDisabled(!valid);
+			}
+			if (!registerFormValues.tos) {
+				setDisabled(true);
+			}
+		});
+	}, [registerFormValues]);
+
+	const onInputChange = event => {
+		const { name } = event.target;
+		const { value } = event.target;
+
+		yup.reach(formSchema, name)
+			.validate(value)
+			.then(valid => {
+				setFormErrors({
+					...formErrors,
+					[name]: "",
+				});
+			})
+			.catch(err => {
+				setFormErrors({
+					...formErrors,
+					[name]: err.errors[0],
+				});
+			});
+		setValues({
+			...registerFormValues,
+			[name]: value,
+		});
+	};
+
+	const onCheckboxChange = event => {
+		const { name } = event.target;
+		const { checked } = event.target;
+		setValues({
+			...registerFormValues,
+			tos: checked,
+		});
+	};
 
 	return (
 		<div>
+			<div className="errors">
+				<div>{formErrors.username}</div>
+				<div>{formErrors.email}</div>
+			</div>
 			<Form
 				onSubmit={event => {
 					event.preventDefault();
@@ -38,7 +97,7 @@ export function Register({ registerUser, toggle }) {
 						type="text"
 						name="username"
 						value={registerFormValues.username}
-						onChange={setRegisterFormValues}
+						onChange={onInputChange}
 					/>
 				</Label>
 				<br />
@@ -49,7 +108,7 @@ export function Register({ registerUser, toggle }) {
 						type="password"
 						name="passwd"
 						value={registerFormValues.passwd}
-						onChange={setRegisterFormValues}
+						onChange={onInputChange}
 					/>
 				</Label>
 				<br />
@@ -60,14 +119,18 @@ export function Register({ registerUser, toggle }) {
 						type="email"
 						name="email"
 						value={registerFormValues.email}
-						onChange={setRegisterFormValues}
+						onChange={onInputChange}
 					/>
 				</Label>
 				<Label check>
-					<Input type="checkbox" /> TOS
+					<Input type="checkbox" onClick={onCheckboxChange} />
+					&nbsp; TOS
 				</Label>
 				<br />
-				<Button>Submit</Button>
+				<br />
+				<Button color="success" disabled={disabled}>
+					Submit
+				</Button>
 			</Form>
 		</div>
 	);

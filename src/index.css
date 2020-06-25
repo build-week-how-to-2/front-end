@@ -20,10 +20,69 @@ code {
 .wrapper {
 	width: 75%;
 	margin: auto;
-	padding: 4% 2%;
+	padding: 1% 2%;
 	background-color: #f4f4f4;
 	border: 3px dashed black;
 	border-radius: 20px;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: #000;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: #0275d8;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #0275d8;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
 }
 
 .logo {
@@ -75,6 +134,7 @@ label {
 	border: 1px solid black;
 	width: 90px;
 	margin-left: 4%;
+	cursor: pointer;
 }
 
 .saveBTN {
@@ -100,11 +160,27 @@ label {
 	border-style: none;
 	width: 100px;
 	font-size: 125%;
+	cursor: pointer;
 }
 
 .spins {
 	display: flex;
 	justify-content: center;
+}
+
+.errors {
+	color: red;
+}
+
+.dark-mode {
+	background-color: #162447;
+}
+.dark-mode .wrapper {
+	background-color: #1f4068;
+}
+
+.dark-mode .wrapper * {
+	color: white;
 }
 
 @media (max-width: 750px) {

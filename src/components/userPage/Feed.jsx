@@ -59,7 +59,7 @@ export const Feed = ({
 											<Button
 												className="saveBTN"
 												size="sm"
-												color="info"
+												color="secondary"
 												onClick={() => {
 													savePost(item);
 												}}>

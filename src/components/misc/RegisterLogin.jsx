@@ -13,6 +13,7 @@ export default function RegisterLogin() {
 
 	return (
 		<div>
+			<hr />
 			<Nav tabs>
 				<NavItem>
 					<NavLink

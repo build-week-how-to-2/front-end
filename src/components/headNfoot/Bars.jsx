@@ -10,7 +10,7 @@ export default function Bars() {
 			<Posted />
 			<Saved />
 			<Link to="/AddHowTo" className="adds">
-				<Button>Add A New How-To</Button>
+				<Button color="primary">Add A New How-To</Button>
 			</Link>
 			<Link
 				to="/Login"

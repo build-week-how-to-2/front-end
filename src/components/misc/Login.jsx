@@ -44,7 +44,7 @@ export const Login = ({ logInUser }) => {
 						/>
 					</Label>
 				</FormGroup>
-				<Button>Submit</Button>
+				<Button color="success">Submit</Button>
 			</Form>
 		</div>
 	);

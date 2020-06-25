@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
+import Toggle from "./Toggle";
 
 export default function Footer() {
 	return (
 		<div className="footers">
 			<Link to="/">
-				<Button>Home</Button>
+				<Button color="primary">Home</Button>
 			</Link>
 			{"    "}
 			<Link to="/contact">
@@ -22,8 +23,11 @@ export default function Footer() {
 				onClick={() => {
 					localStorage.clear();
 				}}>
-				<Button>Logout</Button>
+				<Button color="danger">Logout</Button>
 			</Link>
+			{"  "}
+
+			<Toggle />
 		</div>
 	);
 }
