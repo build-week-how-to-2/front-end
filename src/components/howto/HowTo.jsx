@@ -22,7 +22,7 @@ export const HowTo = ({ howToFeed, upvote, downvote }) => {
 	}, [howToFeed]);
 
 	return (
-		<div>
+		<div className="howToo">
 			{!currentPost ? (
 				<Spinner style={{ width: "3rem", height: "3rem" }} />
 			) : (
