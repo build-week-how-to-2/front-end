@@ -130,7 +130,7 @@ label {
 	border: 1px solid black;
 }
 
-.votes {
+.wrapper .votes {
 	border: 1px solid black;
 	width: 90px;
 	margin-left: 4%;
@@ -180,7 +180,7 @@ label {
 }
 
 .dark-mode .wrapper * {
-	color: white;
+	color: #0ac92b;
 }
 
 @media (max-width: 750px) {

@@ -40,7 +40,7 @@ export const EditHowTo = ({ editPost, deletePost }) => {
 			});
 	}, []);
 	return (
-		<div>
+		<div className="editHowTo">
 			{!currentPost ? (
 				<p>...item is loading...</p>
 			) : (
