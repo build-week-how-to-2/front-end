@@ -9,11 +9,12 @@ export default function Bars() {
 		<div className="bars">
 			<Posted />
 			<Saved />
-			<Link to="/AddHowTo">
+			<Link to="/AddHowTo" className="adds">
 				<Button>Add A New How-To</Button>
 			</Link>
 			<Link
 				to="/Login"
+				className="logins"
 				onClick={() => {
 					localStorage.clear();
 				}}>

@@ -73,7 +73,7 @@ label {
 
 .votes {
 	border: 1px solid black;
-	width: 75px;
+	width: 90px;
 	margin-left: 4%;
 }
 
@@ -86,7 +86,7 @@ label {
 }
 
 .wrapper .feedPostHeader h4 {
-	font-size: 400%;
+	font-size: 300%;
 	/* text-decoration: none; */
 	color: black;
 }
@@ -105,4 +105,35 @@ label {
 .spins {
 	display: flex;
 	justify-content: center;
+}
+
+@media (max-width: 750px) {
+	*,
+	.wrapper .jumbotron h1 {
+		font-size: 50%;
+	}
+
+	#log {
+		width: 100%;
+	}
+
+	.wrapper .bars {
+		margin: 2% 0%;
+		flex-direction: column;
+	}
+	.poasted,
+	.saved,
+	.adds,
+	.logins {
+		margin: 2% 0%;
+	}
+
+	.footers {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.footers * {
+		margin: 2% 0%;
+	}
 }

@@ -6,7 +6,7 @@ export default function Header() {
 	return (
 		<div className="headers">
 			<Link to="/">
-				<img src={logo} alt="logo" />
+				<img id="log" src={logo} alt="logo" />
 			</Link>
 		</div>
 	);
