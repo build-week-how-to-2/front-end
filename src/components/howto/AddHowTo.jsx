@@ -77,7 +77,7 @@ export function AddHowTo({ currentUser, addHowTo }) {
 					</select>
 				</Label>
 				<br />
-				<Button>Submit</Button>
+				<Button color="success">Submit</Button>
 			</Form>
 		</div>
 	);

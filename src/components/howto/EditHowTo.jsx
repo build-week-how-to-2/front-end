@@ -83,6 +83,7 @@ export const EditHowTo = ({ editPost, deletePost }) => {
 					</FormGroup>
 					<Link to="/">
 						<Button
+							color="primary"
 							onClick={event => {
 								editPost(id, editPostForm);
 								localStorage.removeItem("editForm");
@@ -90,9 +91,10 @@ export const EditHowTo = ({ editPost, deletePost }) => {
 							Save
 						</Button>
 					</Link>
-					{"  "}
+					&nbsp; &nbsp;
 					<Link to="/">
 						<Button
+							color="danger"
 							onClick={event => {
 								deletePost(id);
 								localStorage.removeItem("editForm");

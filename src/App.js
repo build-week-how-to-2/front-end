@@ -10,6 +10,7 @@ import RegisterLogin from "./components/misc/RegisterLogin";
 import AddHowTo from "./components/howto/AddHowTo";
 import EditHowTo from "./components/howto/EditHowTo";
 import HowTo from "./components/howto/HowTo";
+import Toggle from "./components/headNfoot/Toggle";
 
 import Tos from "./components/misc/Tos";
 
@@ -17,6 +18,7 @@ function App() {
 	return (
 		<div className="App">
 			<div className="wrapper">
+				{/* <Toggle /> */}
 				<Header />
 				<hr className="my-2" />
 				<Bars />

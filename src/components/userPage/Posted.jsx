@@ -15,7 +15,7 @@ export const Posted = ({ postedHowTo, howToFeed, getMyPost }) => {
 
 	return (
 		<div className="posted">
-			<Button id="Popover2" type="button" color="success">
+			<Button id="Popover2" type="button" color="info">
 				My How-To Post
 			</Button>
 			<Popover
