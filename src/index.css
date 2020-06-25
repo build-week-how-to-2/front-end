@@ -82,11 +82,12 @@ label {
 }
 
 .wrapper .feedPost {
-	margin: 1% 0%;
+	margin: 5% 0%;
 }
 
-.wrapper .feedPostHeader a {
-	text-decoration: none;
+.wrapper .feedPostHeader h4 {
+	font-size: 400%;
+	/* text-decoration: none; */
 	color: black;
 }
 
@@ -98,5 +99,10 @@ label {
 #howToVote {
 	border-style: none;
 	width: 100px;
-	font-size: 150%;
+	font-size: 125%;
+}
+
+.spins {
+	display: flex;
+	justify-content: center;
 }
