@@ -28,6 +28,7 @@ export const Login = ({ logInUser }) => {
 						<Input
 							type="text"
 							name="username"
+							data-testid="usernamelogin"
 							value={loginForm.username}
 							onChange={setLoginForm}
 						/>
@@ -39,6 +40,7 @@ export const Login = ({ logInUser }) => {
 						<Input
 							type="password"
 							name="password"
+							data-testid="passwordlogin"
 							value={loginForm.password}
 							onChange={setLoginForm}
 						/>
