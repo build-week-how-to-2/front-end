@@ -11,6 +11,7 @@ import AddHowTo from "./components/howto/AddHowTo";
 import EditHowTo from "./components/howto/EditHowTo";
 import HowTo from "./components/howto/HowTo";
 import Tos from "./components/misc/Tos";
+import Contact from "./components/misc/Contact";
 
 function App() {
 	return (
@@ -20,7 +21,8 @@ function App() {
 				<hr className="my-2" />
 				<Bars />
 				<Switch>
-					<Route path={"/Login"} component={RegisterLogin}></Route>
+					<Route path={"/Login"} component={RegisterLogin} />
+					<Route path={"/Contact"} component={Contact} />
 					<ProtectedRoute exact path={"/"} component={Home} />
 					<ProtectedRoute
 						exact

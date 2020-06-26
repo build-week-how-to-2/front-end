@@ -45,7 +45,6 @@ export const registerUser = user => dispatch => {
 
 export const upvote = id => dispatch => {
 	// dispatch({ type: "UPVOTE", payload: data });
-	// axiosWithAuth().post().then().catch();
 	axiosWithAuth()
 		.put(`/howtos/${id}/upvote`)
 		.then(({ data }) => {

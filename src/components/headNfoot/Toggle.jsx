@@ -11,9 +11,9 @@ export default function Toggle() {
 	return (
 		<>
 			<sup>Dark Mode</sup>
-			<label class="switch" onClick={toggleMode}>
+			<label className="switch" onClick={toggleMode}>
 				<input type="checkbox" />
-				<span class="slider round"></span>
+				<span className="slider round"></span>
 			</label>
 		</>
 	);
