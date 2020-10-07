@@ -1,4 +1,10 @@
-# WELCOME TO HOW-TO 2 REACT FRONT END
+# WELCOME TO HOW-TO 2's Application
+
+A React application to browse, post, and vote on life hacks.
+Built with React on the front end, Node.js on the back end. 
+Utilizes Redux for application state manangment
+
+------------------------------------------------------------------------------
 
 | AvailableScripts | TERMINAL/CMD    |
 | ---------------- | --------------- |
